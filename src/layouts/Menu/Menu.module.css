@@ -1,0 +1,39 @@
+.wrapper{
+    display: flex;
+    height: 100vh;
+    gap: 20px;
+}
+.menu{
+    flex: 1;
+    padding: 30px 30px 53px 30px;
+    border-right: 1px solid var(--separator-color);
+    display: flex;
+    flex-direction: column;
+}
+.layout{
+    flex: 5;
+}
+.menu-item{
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.menu-user-info{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 46px;
+    gap: 7px;
+}
+.menu-user-info-title{
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+}
+.menu-user-info-email{
+    font-weight: 400;
+    font-size: 14px;
+    color: #9ea1b1;
+}
