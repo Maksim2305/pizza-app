@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 // import App from './App.tsx';
 import './index.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Menu from './components/Menu/Menu';
-import Cart from './components/Cart/Cart';
+import { RouterProvider, createBrowserRouter, defer } from 'react-router-dom';
+// import Menu from './pages/Menu/Menu';
+import Cart from './pages/Cart/Cart';
 import { Layout } from './layouts/Menu/Menu';
 import Error from './components/Error/Error';
-import Product from './components/Product/Product';
+import Product from './pages/Product/Product';
+import axios from 'axios';
+import { PREFIX } from './helpers/API';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import AuthLayout from './layouts/Auth/AuthLayout';
+
+const Menu = lazy(()=> import('./pages/Menu/Menu'));
 
 const router = createBrowserRouter([
   {
@@ -16,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/product',
-        element: <Menu />
+        element: <Suspense fallback={'Загрузка...'}><Menu /></Suspense>
       },
       {
         path: '/cart',
@@ -24,11 +31,31 @@ const router = createBrowserRouter([
       },
       {
         path: '/product/:id',
-        element: <Product />
+        element: <Product />,
+        errorElement: <>Ошибка!</>,
+        loader: async ({ params })=> {
+          return defer({ 
+            data: axios.get(`${PREFIX}/products/${params.id}`).then(data => data)
+          });
+        }
       },
       {
         path: '*',
         element: <Error />
+      }
+    ]
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: 'login',
+        element: <Login />
+      },
+      {
+        path: 'register',
+        element: <Register />
       }
     ]
   }

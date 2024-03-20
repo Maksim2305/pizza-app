@@ -1,4 +1,4 @@
-import ProductCard from '../../ProductCard/ProductCard';
+import ProductCard from '../../../components/ProductCard/ProductCard';
 import { MenuList } from './MenuList.props';
 
 function MenuList({products}: MenuList){

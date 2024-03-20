@@ -1,8 +1,8 @@
-import Header from '../Header/Header';
-import Input from '../Input/Input';
+import Header from '../../components/Header/Header';
+import Input from '../../components/Input/Input';
 import cn from 'classnames';
 import styles from '../Menu/Menu.module.css';
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from '../../components/ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
 import { PREFIX } from '../../helpers/API';
 import { Product } from '../../interfaces/Product.interfaces';
@@ -17,9 +17,6 @@ export function Menu() {
   const getData = async () => {
     setLoading(true);
     try {
-      await new Promise((resolve) => {
-        setTimeout(resolve, 2000);
-      });
       const { data } = await axios.get<Product[]>(`${PREFIX}/products`);
       setProducts(data);
     } catch (err) {
