@@ -9,7 +9,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input({className
       placeholder={placeholder}
       ref={ref}
       {...props}
-        className={cn(styles['input'])}
+        className={cn(styles['input'],
+        {
+          [styles['with-icon']]:search
+        })}
       />
       {search && <img src="/search.svg" alt="search" className={cn(styles['icon'])} />}
     </div>

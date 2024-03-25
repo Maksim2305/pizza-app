@@ -15,7 +15,7 @@ export function Layout() {
                 </div>
                 <div className={styles['menu-item']}>
                     <img src="/menu.svg" alt="menu" />
-                    <Link to="/product">Меню</Link>
+                    <Link to="/">Меню</Link>
                 </div>
                 <div className={styles['menu-item']}>
                     <img src="/cart.svg" alt="cart" />

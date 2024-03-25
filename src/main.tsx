@@ -13,16 +13,17 @@ import { PREFIX } from './helpers/API';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import AuthLayout from './layouts/Auth/AuthLayout';
+import { RequireAuth } from './helpers/RequireAuth';
 
 const Menu = lazy(()=> import('./pages/Menu/Menu'));
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <RequireAuth><Layout /></RequireAuth>,
     children: [
       {
-        path: '/product',
+        path: '/',
         element: <Suspense fallback={'Загрузка...'}><Menu /></Suspense>
       },
       {
