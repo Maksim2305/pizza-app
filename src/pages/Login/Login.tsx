@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import Input from '../../components/Input/Input';
 import styles from './Login.module.css';
@@ -6,6 +6,9 @@ import cn from 'classnames';
 import { FormEvent, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { PREFIX } from '../../helpers/API';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store/store';
+import { userActiion, userActions } from '../../store/user.slice';
 
 export type LoginForm = {
     email: {
@@ -18,6 +21,9 @@ export type LoginForm = {
 
 function Login () {
     const [error, setError] = useState<string | null>();
+
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
     const submit = (event: FormEvent) => {
         event.preventDefault();
         setError(null);
@@ -27,10 +33,12 @@ function Login () {
     };
     const submitHandler = async(email: string, password: string) => {
         try{
-            await axios.post(`${PREFIX}/auth/login`, {
+            const { data } = await axios.post(`${PREFIX}/auth/login`, {
                 email,
                 password
             });
+            dispatch(userActions.addJwt(data.access_token));
+            navigate('/');
         } catch(err){
             if(err instanceof AxiosError){
                 setError(err.response?.data.message);
