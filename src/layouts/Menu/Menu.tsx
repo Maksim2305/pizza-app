@@ -1,8 +1,12 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import styles from './Menu.module.css';
 import Button from '../../components/Button/Button';
 
 export function Layout() {
+    const navigate = useNavigate();
+    const logout = () => {
+        navigate('/auth/login');
+    };
     return (
         <div className={styles['wrapper']}>
             
@@ -22,7 +26,7 @@ export function Layout() {
                     <Link to="/cart">Корзина</Link>
                 </div>
                 <div style={{'marginTop': 'auto'}}>
-                    <Button appearence='small'>
+                    <Button appearence='small' onClick={logout}>
                         <span style={{display: 'flex', flexDirection: 'row', gap: '9px', alignItems: 'center'}}><img src="/exit.svg" alt="exit" />Выйти</span>
                     </Button>
                 </div>
