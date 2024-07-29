@@ -1,5 +1,5 @@
 import { Await, useLoaderData } from 'react-router-dom';
-import { Product } from '../../interfaces/Product.interfaces';
+import { Product } from '../../interfaces/product.interfaces';
 import { Suspense } from 'react';
 
 function Product() {

@@ -5,7 +5,7 @@ import styles from '../Menu/Menu.module.css';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
 import { PREFIX } from '../../helpers/API';
-import { Product } from '../../interfaces/Product.interfaces';
+import { Product } from '../../interfaces/product.interfaces';
 import axios, { AxiosError } from 'axios';
 import MenuList from './MenuList/MenuList';
 
