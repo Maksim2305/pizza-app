@@ -27,6 +27,10 @@ export const cartSlice = createSlice({
                 state.items = state.items.filter(i => i.id !== action.payload);
             }
            
+        }, 
+        clear: (state) => {
+            state.items = [];
+            state.count = 0;
         }
     }
 });

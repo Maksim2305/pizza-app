@@ -4,9 +4,8 @@ import styles from './Register.module.css';
 import cn from 'classnames';
 import { FormEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 import { register, userActions } from '../../store/user.slice';
-import { RootState } from '@reduxjs/toolkit/query';
 import { LoginForm } from '../Login/Login';
 
 export type RegisterForm = {
@@ -34,7 +33,7 @@ function Register () {
 
     const submit = (event: FormEvent) => {
         event.preventDefault();
-        dispatch(userActions.clearLoginError());
+        dispatch(userActions.clearRegisterError());
         const target = event.target as typeof event.target & LoginForm;
         const { email, password, name } = target;
         dispatch(register({email: email.value, password: password.value, name: name.value}));

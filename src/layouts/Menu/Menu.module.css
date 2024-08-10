@@ -20,6 +20,14 @@
     align-items: center;
     margin-bottom: 35px;
 }
+.menu-item-count{
+    background: var(--primary-color);
+    border: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    width: 20px;
+}
 
 .menu-user-info{
     display: flex;
