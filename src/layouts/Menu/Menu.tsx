@@ -36,11 +36,11 @@ export function Layout() {
           </span>
         </div>
         <div className={styles['menu-item']}>
-          <img src="./menu.svg" alt="menu" />
+          <img src="/menu.svg" alt="menu" />
           <Link to="/">Меню</Link>
         </div>
         <div className={styles['menu-item']}>
-          <img src="./cart.svg" alt="cart" />
+          <img src="/cart.svg" alt="cart" />
           <Link to="/cart">
             Корзина 
           </Link>
@@ -56,7 +56,7 @@ export function Layout() {
                 alignItems: 'center'
               }}
             >
-              <img src="./exit.svg" alt="exit" />
+              <img src="/exit.svg" alt="exit" />
               Выйти
             </span>
           </Button>

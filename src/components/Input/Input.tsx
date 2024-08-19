@@ -14,7 +14,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input({className
           [styles['with-icon']]:search
         })}
       />
-      {search && <img src="./search.svg" alt="search" className={cn(styles['icon'])} />}
+      {search && <img src="/search.svg" alt="search" className={cn(styles['icon'])} />}
     </div>
   );
 });

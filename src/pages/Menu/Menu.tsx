@@ -4,12 +4,12 @@ import cn from 'classnames';
 import styles from '../Menu/Menu.module.css';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { PREFIX } from '../../helpers/API';
-import { IProduct } from '../../interfaces/product.interfaces';
+import { Product } from '../../interfaces/product.interfaces';
 import axios, { AxiosError } from 'axios';
 import MenuList from './MenuList/MenuList';
 
 export function Menu() {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>('');
   const [search, setSearch] = useState<string>('');
@@ -22,7 +22,7 @@ export function Menu() {
   const getData = async (name?: string) => {
     setLoading(true);
     try {
-      const { data } = await axios.get<IProduct[]>(`${PREFIX}/products`, {
+      const { data } = await axios.get<Product[]>(`${PREFIX}/products`, {
         params: { name }
       });
       setProducts(data);

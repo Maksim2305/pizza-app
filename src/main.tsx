@@ -62,10 +62,8 @@ const router = createBrowserRouter([
       }
     ]
   }
-],
-{
-  basename: '/pizza-app' // Указываем поддиректорию
-});
+ 
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

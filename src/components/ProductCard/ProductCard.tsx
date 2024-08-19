@@ -26,11 +26,11 @@ function ProductCard(props: ProductCardProps) {
           />
           <div className={cn(styles['price'])}>{props.price} <span>₽</span></div>
           <button className={cn(styles['cart'])} onClick={addToCart}>
-            <img src="./cart-icon.svg" alt="add-to-cart" />
+            <img src="/cart-icon.svg" alt="add-to-cart" />
           </button>
           <div className={cn(styles['rating'])}>
             <span>{props.rating}</span>
-            <img src="./rating-star.svg" alt="rating-star" />
+            <img src="/rating-star.svg" alt="rating-star" />
           </div>
         </div>
         <div className={cn(styles['product-card-bottom'])}>
