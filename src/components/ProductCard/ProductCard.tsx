@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from '../ProductCard/ProductCard.module.css';
 import cn from 'classnames';
-import {ProductCardProps} from '../ProductCard/ProductCard.props';
+import { ProductCardProps } from '../ProductCard/ProductCard.props';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { cartActions } from '../../store/cart.slice';
@@ -16,15 +16,13 @@ function ProductCard(props: ProductCardProps) {
   };
 
   return (
-    <Link to={'/product/'+props.id} className={styles['link']}>
+    <Link to={'/product/' + props.id} className={styles['link']}>
       <div className={cn(styles['product-card'])}>
         <div className={cn(styles['product-card-top'])}>
-          <img
-            src={props.image}
-            alt=""
-            className={cn(styles['image'])}
-          />
-          <div className={cn(styles['price'])}>{props.price} <span>₽</span></div>
+          <img src={props.image} alt="" className={cn(styles['image'])} />
+          <div className={cn(styles['price'])}>
+            {props.price} <span>₽</span>
+          </div>
           <button className={cn(styles['cart'])} onClick={addToCart}>
             <img src="/cart-icon.svg" alt="add-to-cart" />
           </button>
@@ -35,9 +33,7 @@ function ProductCard(props: ProductCardProps) {
         </div>
         <div className={cn(styles['product-card-bottom'])}>
           <div className={cn(styles['title'])}>{props.title}</div>
-          <div className={cn(styles['description'])}>
-           {props.description}
-          </div>
+          <div className={cn(styles['description'])}>{props.description}</div>
         </div>
       </div>
     </Link>
