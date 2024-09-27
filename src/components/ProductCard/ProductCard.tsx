@@ -32,11 +32,11 @@ function ProductCard(props: ProductCardProps) {
                 : '#ccc'
             }}
           >
-            <img src="/cart-icon.svg" alt="add-to-cart" />
+            <img src="/pizza-app/cart-icon.svg" alt="add-to-cart" />
           </button>
           <div className={cn(styles['rating'])}>
             <span>{props.rating}</span>
-            <img src="/rating-star.svg" alt="rating-star" />
+            <img src="/pizza-app/rating-star.svg" alt="rating-star" />
           </div>
         </div>
         <div className={cn(styles['product-card-bottom'])}>

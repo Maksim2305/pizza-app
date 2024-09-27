@@ -17,7 +17,7 @@ export const Success: FC = () => {
 
   return (
     <div className={styles['success-container']}>
-      <img src="/pizza.png" alt="pizza" />
+      <img src="/pizza-app/pizza.png" alt="pizza" />
       <Button appearence="big" onClick={() => navigate('/')}>
         Сделать новый
       </Button>

@@ -5,7 +5,7 @@ function Auth(){
     return <>
         <div className={styles['auth-container']}>
             <div className={styles['auth-container-img']}>
-                <img src="/Group.svg" alt="auth-picture" />
+                <img src="/pizza-app/Group.svg" alt="auth-picture" />
             </div>
             <div className={styles['auth-container-outlet']}>
                 <Outlet/>

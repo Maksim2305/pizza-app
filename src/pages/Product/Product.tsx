@@ -26,7 +26,7 @@ function Product() {
                 <Link to={'/'} className={styles['product-upper-button-back']}>
                   <img
                     className={styles['arrow']}
-                    src="/back-arrow.svg"
+                    src="/pizza-app/back-arrow.svg"
                     alt="back"
                   />
                 </Link>
@@ -62,7 +62,7 @@ function Product() {
                         <span>{data.rating}</span>
                         <img
                           style={{ marginLeft: '4px' }}
-                          src="/rating-star.svg"
+                          src="/pizza-app/rating-star.svg"
                           alt="rating-star"
                         />
                       </div>
