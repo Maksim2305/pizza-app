@@ -1,22 +1,55 @@
-.button{
-    background: var(--primary-color);
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
-    border-radius: 28px;
+.button {
+  background: var(--primary-color);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 28px;
+  transition: background-color 300ms ease, color 300ms linear;
 }
-.small{
-    font-size: 16px;
-    font-weight: 400;
-    padding: 10px 22px;
+.small {
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 22px;
 }
-.big{
-    padding: 16px 59px;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.big {
+  padding: 16px 59px;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
-.button:hover{
-    background: var(--primary-hover-color);
+.icon {
+  font-size: 16px;
+  font-weight: 400;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+}
+
+.default {
+  font-size: 16px;
+  font-weight: 400;
+  width: 28px;
+  min-width: 28px;
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  color: var(--primary-color);
+}
+.button:hover {
+  background: var(--primary-hover-color);
+}
+.transparent {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 28px;
+  transition: background-color 300ms ease, color 300ms linear;
+}
+
+.transparent:hover {
+  background: var(--primary-color);
+  color: #fff;
 }

@@ -4,9 +4,18 @@ import { Suspense } from 'react';
 import Header from '../../components/Header/Header';
 import styles from './Product.module.css';
 import Button from '../../components/Button/Button';
+import { cartActions } from '../../store/cart.slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
 
 function Product() {
   const data = useLoaderData() as { data: ProductCart };
+  const dispatch = useDispatch<AppDispatch>();
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  const addToCart = (productId: number) => {
+    dispatch(cartActions.add(productId));
+  };
   return (
     <>
       <Suspense fallback={'Загружаем...'}>
@@ -22,8 +31,13 @@ function Product() {
                   />
                 </Link>
                 <Header style={{ marginLeft: '36px' }}>{data.name}</Header>
-                <Button className={styles['product-upper-card-button']}>
-                  В корзину
+                <Button
+                  className={styles['product-upper-card-button']}
+                  onClick={() => addToCart(data.id)}
+                >
+                  {cartItems?.some((item) => item.id === data.id)
+                    ? 'Убрать из корзины'
+                    : 'В корзину'}
                 </Button>
               </div>
 

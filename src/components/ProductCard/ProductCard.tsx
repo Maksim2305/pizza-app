@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import styles from '../ProductCard/ProductCard.module.css';
 import cn from 'classnames';
 import { ProductCardProps } from '../ProductCard/ProductCard.props';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/store';
 import { cartActions } from '../../store/cart.slice';
 import { MouseEvent } from 'react';
 
 function ProductCard(props: ProductCardProps) {
   const dispatch = useDispatch<AppDispatch>();
-
+  const items = useSelector((s: RootState) => s.cart.items);
   const addToCart = (e: MouseEvent) => {
     e.preventDefault();
     dispatch(cartActions.add(props.id));
@@ -23,7 +23,15 @@ function ProductCard(props: ProductCardProps) {
           <div className={cn(styles['price'])}>
             {props.price} <span>₽</span>
           </div>
-          <button className={cn(styles['cart'])} onClick={addToCart}>
+          <button
+            className={cn(styles['cart'])}
+            onClick={addToCart}
+            style={{
+              background: items.some((it) => it.id === props.id)
+                ? '#FE724C'
+                : '#ccc'
+            }}
+          >
             <img src="/cart-icon.svg" alt="add-to-cart" />
           </button>
           <div className={cn(styles['rating'])}>

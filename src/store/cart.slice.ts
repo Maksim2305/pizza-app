@@ -1,4 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { loadState } from './storage';
+
+export const  CART_PERSISTENT_STATE = 'cartData';
 
 interface CartItem {
     id: number;
@@ -7,12 +10,14 @@ interface CartItem {
 
 export interface CartState {
     items: CartItem[],
-    count: number
+    count: number,
+    isOrderPlaced: boolean
 }
 
 const initialState: CartState = {
-    items: [],
-    count: 0
+    items: loadState<CartState>(CART_PERSISTENT_STATE)?.items ?? [],
+    count: 0,
+    isOrderPlaced: false
 };
 
 export const cartSlice = createSlice({
@@ -28,9 +33,16 @@ export const cartSlice = createSlice({
             }
            
         }, 
+        remove: (state, action: PayloadAction<number>) => {
+            console.log(state, action);
+            state.items = state.items.filter(i => i.id !== action.payload);
+        },
         clear: (state) => {
             state.items = [];
             state.count = 0;
+        },
+        setOrderPlaced(state, action: PayloadAction<boolean>) {
+            state.isOrderPlaced = action.payload;
         }
     }
 });
