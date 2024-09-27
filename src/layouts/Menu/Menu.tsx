@@ -26,7 +26,7 @@ export function Layout() {
   return (
     <div className={styles['wrapper']}>
       <div className={styles['menu']}>
-        <img src="/avatar.png" alt="user-icon" />
+        <img src="/pizza-app/avatar.png" alt="user-icon" />
         <div className={styles['menu-user-info']}>
           <span className={styles['menu-user-info-title']}>
             {profile?.name}
