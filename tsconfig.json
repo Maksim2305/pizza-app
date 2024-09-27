@@ -22,8 +22,8 @@
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "baseUrl": "./src",
-    "paths": {
-      "@interfaces/*": ["interfaces/*"]
-    }
+  // "baseUrl": "./src",
+  //   "paths": {
+  //     "@interfaces/*": ["interfaces/*"]
+  //   }
 }

@@ -68,8 +68,9 @@ const router = createBrowserRouter([
       }
     ]
   }
- 
-]);
+], {
+  basename: '/pizza-app'
+});
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
